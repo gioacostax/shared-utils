@@ -1,4 +1,4 @@
-import { v4 as uuidv4 } from 'uuid';
+import forge from 'node-forge';
 
 /**
  * Generate a unique ID
@@ -6,4 +6,4 @@ import { v4 as uuidv4 } from 'uuid';
  * @param size Length of the ID
  * @returns ID string
  */
-export default (size = 4) => uuidv4().slice(-size);
+export default (size = 4) => forge.util.bytesToHex(forge.random.getBytesSync(size));
