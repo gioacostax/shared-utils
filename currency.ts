@@ -35,7 +35,7 @@ export const numberToCurrency = (value: number | string | null | undefined, opti
   const rawValue =
     typeof value === 'number'
       ? String(value).replace('.', decimalsFormat).split(decimalsFormat)
-      : String(value).split(decimalsFormat);
+      : value.split(decimalsFormat);
 
   // Extract integer from raw value
   const integer = Number(rawValue[0]?.replace(/\D|\./g, '').slice(0, 16));

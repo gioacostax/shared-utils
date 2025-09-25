@@ -3,29 +3,27 @@ import { getAbsoluteUrl, getRelativeUrl } from '../url';
 describe('url utils', () => {
   test('getAbsoluteUrl', () => {
     /* Assertions */
-    expect(getAbsoluteUrl('/test', '/path/', 'http://localhost')).toBe(
-      'http://localhost/path/test',
-    );
+    expect(getAbsoluteUrl('/test', '/path', 'http://localhost')).toBe('http://localhost/test');
   });
 
   test('getRelativeUrl', () => {
     /* Assertions */
-    expect(getRelativeUrl('/test', '/path/', 'http://localhost')).toBe('/path/test');
+    expect(getRelativeUrl('/test', '/path', 'http://localhost')).toBe('/test');
   });
 
   test('getAbsoluteUrl with default params', () => {
-    import.meta.env.BASE_URL = '/path/';
+    import.meta.env.BASE_URL = '/path';
     (import.meta.env as Record<string, string>).SITE = 'http://localhost';
 
     /* Assertions */
-    expect(getAbsoluteUrl('/test')).toBe('http://localhost/path/test');
+    expect(getAbsoluteUrl('/test')).toBe('http://localhost/test');
   });
 
   test('getRelativeUrl with default params', () => {
-    import.meta.env.BASE_URL = '/path/';
+    import.meta.env.BASE_URL = '/path';
     (import.meta.env as Record<string, string>).SITE = 'http://localhost';
 
     /* Assertions */
-    expect(getRelativeUrl('/test')).toBe('/path/test');
+    expect(getRelativeUrl('/test')).toBe('/test');
   });
 });
