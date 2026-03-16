@@ -49,7 +49,6 @@ export const numberToCurrency = (value: number | string | null | undefined, opti
 
   // Return transformation with decimals if necessary
   return `${isNegative && integer !== 0 ? '-' : ''}${integer.toLocaleString(options?.locale)}${
-    // eslint-disable-next-line no-nested-ternary
     rawValue[1] !== undefined
       ? `${decimalsFormat}${decimals}`
       : options?.forceDecimals
