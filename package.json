@@ -1,0 +1,11 @@
+{
+  "name": "@giio/shared-utils",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "date-fns": "4.4.0",
+    "node-forge": "1.4.0"
+  },
+  "packageManager": "pnpm@12.10.1"
+}
