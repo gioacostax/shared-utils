@@ -1,5 +1,5 @@
-import { formatDuration, intervalToDuration } from 'date-fns';
-import { es } from 'date-fns/locale';
+import { formatDuration, intervalToDuration } from "date-fns";
+import { es } from "date-fns/locale";
 
 /**
  * Format date difference in localized string
@@ -8,8 +8,8 @@ import { es } from 'date-fns/locale';
  * @returns Localized string
  */
 export const dateDiff = (start: Date, end: Date, locale = es) =>
-  formatDuration(intervalToDuration({ end, start }), {
-    delimiter: ', ',
-    format: ['years', 'months'],
-    locale,
-  });
+	formatDuration(intervalToDuration({ end, start }), {
+		delimiter: ", ",
+		format: ["years", "months"],
+		locale,
+	});
