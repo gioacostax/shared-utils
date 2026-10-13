@@ -5,11 +5,8 @@
  * @param site base site
  * @returns absolute url
  */
-export const getAbsoluteUrl = (
-	path: string,
-	base = "/",
-	site = "http://localhost",
-) => new URL(path.replace(/^\/+/, ""), `${site}${base}`).href;
+export const getAbsoluteUrl = (path: string, base = '/', site = 'http://localhost') =>
+  new URL(path.replace(/^\/+/, ''), `${site}${base}`).href;
 
 /**
  * Format relative url
@@ -18,14 +15,11 @@ export const getAbsoluteUrl = (
  * @param site base site
  * @returns relative url
  */
-export const getRelativeUrl = (
-	path: string,
-	base = "/",
-	site = "http://localhost",
-) => new URL(path.replace(/^\/+/, ""), `${site}${base}`).pathname;
+export const getRelativeUrl = (path: string, base = '/', site = 'http://localhost') =>
+  new URL(path.replace(/^\/+/, ''), `${site}${base}`).pathname;
 
 export const getSearchParam = (url: string, key: string) =>
-	new URLSearchParams(new URL(url).search).get(key) ?? undefined;
+  new URLSearchParams(new URL(url).search).get(key) ?? undefined;
 
 /**
  * Extracts the root domain (eTLD+1) from a URL using a **naive two-label heuristic**.
@@ -46,5 +40,4 @@ export const getSearchParam = (url: string, key: string) =>
  * Current usage in this codebase is safe because `allowOrigin` is a known, fixed domain (`giio.dev`)
  * and the comparison is symmetric (both sides use the same heuristic).
  */
-export const getRootDomain = (url: string) =>
-	new URL(url).hostname.split(".").slice(-2).join(".");
+export const getRootDomain = (url: string) => new URL(url).hostname.split('.').slice(-2).join('.');
